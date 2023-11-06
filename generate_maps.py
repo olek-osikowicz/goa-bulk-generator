@@ -9,6 +9,7 @@ from multiprocessing import Pool
 
 CONFIG_DIR = Path("config")
 
+
 def generate_from_file(path: Path):
 
     try:
@@ -26,13 +27,13 @@ def generate_from_file(path: Path):
 
 
 def main():
-    # n_processes = int(sys.argv[1])
-    #get json files
+
     paths = [p for p in CONFIG_DIR.glob('**/*') if p.suffix == '.json']
+
+    # to do make number of processes envariomental variable
     with Pool(processes=4) as pool:
         results = pool.map(generate_from_file, paths)
 
-    
     fails = [r for r in results if r[1]]
 
     log.info("Printing fails:")
@@ -42,5 +43,6 @@ def main():
 
 if __name__ == "__main__":
 
-    log.basicConfig(format='%(levelname)s:%(asctime)s: %(message)s',level=log.DEBUG)
-    main() 
+    log.basicConfig(
+        format='%(levelname)s:%(asctime)s: %(message)s', level=log.DEBUG)
+    main()
