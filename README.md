@@ -25,7 +25,7 @@ A tool for generating map posters using OpenStreetMap data. The generator create
 - Outputs SVG files, with optional PNG export via Inkscape
 
 ## Dependencies
-
+- Python 3.13+
 - [drawsvg](https://github.com/cduck/drawsvg) (for SVG generation)
 - [osmnx](https://osmnx.readthedocs.io/) (for OSM data fetching)
 - [geopandas](https://geopandas.org/) (for geospatial data handling)
@@ -34,11 +34,18 @@ A tool for generating map posters using OpenStreetMap data. The generator create
 
 ## Installation
 
-You can install dependencies using [uv](https://github.com/astral-sh/uv) (recommended for speed) or pip:
+You can install dependencies using [uv](https://github.com/astral-sh/uv):
 
 ```sh
 uv sync
 uv run main.py
+```
+
+or using `pip`:
+
+```sh
+pip install -r requirements.txt
+python main.py
 ```
 
 > **Note:** The first run will download a water polygons cache (~2GB required disk space). Make sure you have at least 2GB of free storage available.
