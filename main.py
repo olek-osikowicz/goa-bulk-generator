@@ -1,5 +1,6 @@
 import json
 import logging as log
+from multiprocessing import cpu_count
 from pathlib import Path
 
 from tqdm.contrib.concurrent import process_map
@@ -30,4 +31,4 @@ if __name__ == "__main__":
     log.basicConfig(format="%(levelname)s:%(asctime)s: %(message)s", level=log.DEBUG)
     Fetcher.ensure_water_polygons()
     paths = list(CONFIG_DIR.glob("**/a3.json"))
-    process_map(generate_from_file, paths)
+    process_map(generate_from_file, paths, max_workers=cpu_count() // 2)
