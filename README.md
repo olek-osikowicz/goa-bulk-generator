@@ -1,6 +1,6 @@
-# GOA Bulk Generator
+# GOA Maps generator
 
-A tool for generating map posters in bulk using OpenStreetMap data. The generator creates SVG and optionally PNG images with customizable templates, map layers, and text areas.
+A tool for generating map posters using OpenStreetMap data. The generator creates SVG with customizable templates, map layers, and text areas.
 
 ## Gallery
 
